@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIP HOP ARTISTS </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+--bg:#050505;
+--purple:#b026ff;
+--blue:#00f3ff;
+--red:#ff003c;
+--text:#ffffff;
+--glass:rgba(255,255,255,0.05);
+--border:rgba(255,255,255,0.1);
+--accent:var(--purple);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Poppins, sans-serif;overflow-x:hidden}
+
+/* Scroll Progress */
+#progress{
+position:fixed;top:0;left:0;height:4px;
+background:var(--accent);width:0%;z-index:9999;
+}
+
+/* Preloader */
+#preloader{
+position:fixed;inset:0;background:#000;
+display:flex;justify-content:center;align-items:center;
+flex-direction:column;z-index:9998
+}
+.spinner{
+width:50px;height:50px;border:4px solid transparent;
+border-top:4px solid var(--accent);
+border-radius:50%;animation:spin 1s linear infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Navbar */
+nav{
+position:fixed;top:0;width:100%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+padding:15px 40px;display:flex;
+justify-content:space-between;align-items:center;
+z-index:1000;border-bottom:1px solid var(--border)
+}
+.logo{
+font-family:Oswald,sans-serif;
+font-size:1.5rem;font-weight:700;
+background:linear-gradient(90deg,var(--blue),var(--purple));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+nav a{color:white;text-decoration:none;margin-left:25px;font-size:0.9rem}
+nav a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{
+height:100vh;display:flex;
+flex-direction:column;justify-content:center;
+align-items:center;text-align:center;
+background:radial-gradient(circle at center,#1a0b2e,#000)
+}
+.hero h1{
+font-family:Oswald,sans-serif;
+font-size:4rem;text-transform:uppercase;
+margin-bottom:10px;
+text-shadow:0 0 20px var(--accent)
+}
+
+/* Language */
+.lang{
+position:relative;margin-bottom:20px
+}
+.lang button{
+padding:8px 20px;border-radius:20px;
+border:1px solid var(--border);
+background:var(--glass);color:white;cursor:pointer
+}
+.lang ul{
+position:absolute;top:110%;left:0;
+background:#111;list-style:none;
+display:none;border:1px solid var(--accent);
+border-radius:8px
+}
+.lang ul li{
+padding:8px 15px;cursor:pointer
+}
+.lang ul li:hover{background:var(--accent)}
+
+/* Search */
+.search{
+width:90%;max-width:600px;
+margin-top:20px;position:relative
+}
+.search input{
+width:100%;padding:15px 50px 15px 20px;
+border-radius:40px;border:1px solid var(--border);
+background:rgba(0,0,0,0.6);color:white
+}
+.search i{
+position:absolute;right:20px;top:50%;
+transform:translateY(-50%);
+color:var(--accent);cursor:pointer
+}
+
+/* Mood */
+.moods{margin-top:20px}
+.moods button{
+margin:5px;padding:8px 15px;
+border-radius:20px;border:1px solid #333;
+background:transparent;color:#777;cursor:pointer
+}
+.moods button.active{
+border-color:var(--accent);
+color:var(--accent)
+}
+
+/* Sections */
+section{padding:100px 40px}
+h2{
+font-family:Oswald,sans-serif;
+text-align:center;font-size:2.5rem;
+margin-bottom:40px
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px
+}
+.card{
+background:var(--glass);
+padding:25px;border-radius:15px;
+border:1px solid var(--border);
+transition:0.3s
+}
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--accent)
+}
+
+/* Mixer */
+.slider-row{
+display:flex;justify-content:space-between;
+margin:15px 0;align-items:center
+}
+.slider-row input{width:60%}
+
+/* AI Section */
+textarea{
+width:100%;min-height:120px;
+padding:15px;border-radius:10px;
+background:#111;color:white;border:1px solid var(--border)
+}
+.ai-output{
+margin-top:20px;
+background:#111;padding:20px;
+border-radius:10px;min-height:100px;
+border:1px solid var(--accent)
+}
+
+/* Footer */
+footer{
+background:#000;padding:40px;text-align:center;
+border-top:1px solid var(--border)
+}
+
+/* Back To Top */
+#topBtn{
+position:fixed;bottom:30px;right:30px;
+background:var(--accent);color:white;
+border:none;padding:10px 15px;
+border-radius:50%;cursor:pointer;
+display:none
+}
+
+@media(max-width:768px){
+.hero h1{font-size:2.5rem}
+}
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<div id="preloader">
+<div class="spinner"></div>
+<p>Loading HIP HOP ARTISTS...</p>
+</div>
+
+<nav>
+<div class="logo">HIP HOP ARTISTS</div>
+<div>
+<a href="#academy">Academy</a>
+<a href="#beats">Beats</a>
+<a href="#ai">AI Assistant</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1><b>HIP HOP ARTISTS</b></h1>
+
+<div class="lang">
+<button id="langBtn">Language ▼</button>
+<ul id="langMenu">
+<li>English</li>
+<li>Hindi</li>
+<li>Spanish</li>
+<li>French</li>
+</ul>
+</div>
+
+<div class="search">
+<input type="text" placeholder="Search beats, lyrics, techniques...">
+<i class="fa fa-search"></i>
+</div>
+
+<div class="moods">
+<button onclick="setMood('purple')" class="active">Motivational</button>
+<button onclick="setMood('blue')">Sad</button>
+<button onclick="setMood('red')">Aggressive</button>
+</div>
+</section>
+
+<section id="academy">
+<h2>Beginner Rapper Academy</h2>
+<div class="grid">
+<div class="card"><h3>Rhyme Schemes</h3><p>Learn multi-syllable rhyming techniques.</p></div>
+<div class="card"><h3>Flow Control</h3><p>Master cadence & rhythm switching.</p></div>
+<div class="card"><h3>Punchlines</h3><p>Create impactful lyrical bars.</p></div>
+<div class="card"><h3>Storytelling</h3><p>Write emotional & cinematic rap.</p></div>
+</div>
+</section>
+
+<section id="beats">
+<h2>Beat & Mixer Lab</h2>
+<div class="card">
+<div class="slider-row">
+<label>Bass</label>
+<input type="range" min="0" max="100" value="50" oninput="updateVal(this)">
+<span>50</span>
+</div>
+<div class="slider-row">
+<label>Treble</label>
+<input type="range" min="0" max="100" value="40" oninput="updateVal(this)">
+<span>40</span>
+</div>
+<div class="slider-row">
+<label>Reverb</label>
+<input type="range" min="0" max="100" value="30" oninput="updateVal(this)">
+<span>30</span>
+</div>
+</div>
+</section>
+
+<section id="ai">
+<h2>AI Lyrics Assistant</h2>
+<textarea id="lyrics" placeholder="Paste your lyrics here..."></textarea>
+<br><br>
+<button onclick="analyzeLyrics()" style="padding:10px 20px;border:none;background:var(--accent);color:white;border-radius:5px">Analyze My Lyrics</button>
+<div class="ai-output" id="aiOutput"></div>
+</section>
+
+<footer>
+<p>Website Designed & Developed by <b>Yashvardhan Bariya</b></p>
+<p>https://www.instagram.com/_yaa.ssshhhh/</p>
+  <p>Vision: Empower Every Artist Worldwide</p>
+<p>© 2026 HIP HOP ARTISTS. All Rights Reserved.</p>
+</footer>
+
+<button id="topBtn" onclick="scrollToTop()"><i class="fa fa-arrow-up"></i></button>
+
+<script>
+/* Preloader */
+window.onload = () => {
+document.getElementById("preloader").style.display="none";
+};
+
+/* Scroll Progress */
+window.onscroll = function(){
+let winScroll = document.documentElement.scrollTop;
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let scrolled = (winScroll / height) * 100;
+document.getElementById("progress").style.width = scrolled + "%";
+
+document.getElementById("topBtn").style.display = winScroll>300 ? "block":"none";
+};
+
+/* Scroll To Top */
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+
+/* Language Dropdown */
+const langBtn=document.getElementById("langBtn");
+const langMenu=document.getElementById("langMenu");
+langBtn.onclick=()=>{langMenu.style.display=langMenu.style.display==="block"?"none":"block"}
+
+/* Mood System */
+function setMood(color){
+document.querySelectorAll(".moods button").forEach(btn=>btn.classList.remove("active"));
+event.target.classList.add("active");
+
+if(color==="purple")document.documentElement.style.setProperty('--accent','#b026ff');
+if(color==="blue")document.documentElement.style.setProperty('--accent','#00f3ff');
+if(color==="red")document.documentElement.style.setProperty('--accent','#ff003c');
+}
+
+/* Slider Update */
+function updateVal(el){
+el.nextElementSibling.innerText=el.value;
+}
+
+/* AI Simulation */
+function analyzeLyrics(){
+let output=document.getElementById("aiOutput");
+output.innerHTML="Analyzing...";
+setTimeout(()=>{
+output.innerHTML=
+"<b>Rhyme Score:</b> 8/10<br>"+
+"<b>Flow Rating:</b> Strong<br>"+
+"<b>Emotional Tone:</b> Motivational<br>"+
+"<b>Suggested Beat:</b> Trap / Drill<br>"+
+"<b>Improvement:</b> Add multi-syllable rhymes & internal rhyme patterns.";
+},1500);
+}
+</script>
+
+</body>
+  </html>
