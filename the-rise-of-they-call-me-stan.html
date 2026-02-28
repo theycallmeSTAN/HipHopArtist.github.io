@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
+ <style>
 *{
   margin:0;
   padding:0;
@@ -9,83 +9,43 @@
 }
 
 body{
-  height:100vh;
   font-family: Arial, sans-serif;
   background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
     url("images/Gemini_Generated_Image_ugffnmugffnmugff.png");
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
+  color:white;
+}
+
+/* Section Style */
+section{
+  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-  flex-direction:column;
-  gap:20px;
-  color:white;
+  padding:20px;
 }
 
-/* Neon Text Style */
-p{
-  font-size:1.5rem;
+/* Neon Text */
+.reveal{
+  font-size:2rem;
   font-weight:bold;
+  opacity:0;
+  transform:translateY(80px);
+  transition: all 1s ease;
   text-shadow:
     0 0 5px #00ffff,
     0 0 10px #00ffff,
     0 0 20px #00ffff;
-  opacity:0;
 }
 
-/* Slide From Left */
-.left{
-  animation: slideLeft 1.5s ease forwards;
-}
-
-/* Slide From Right */
-.right{
-  animation: slideRight 1.5s ease forwards;
-  animation-delay:0.5s;
-}
-
-/* Slide From Top */
-.top{
-  animation: slideTop 1.5s ease forwards;
-  animation-delay:1s;
-}
-
-/* Slide From Bottom */
-.bottom{
-  animation: slideBottom 1.5s ease forwards;
-  animation-delay:1.5s;
-}
-
-/* Keyframes */
-@keyframes slideLeft{
-  from{ transform:translateX(-200px); opacity:0; }
-  to{ transform:translateX(0); opacity:1; }
-}
-
-@keyframes slideRight{
-  from{ transform:translateX(200px); opacity:0; }
-  to{ transform:translateX(0); opacity:1; }
-}
-
-@keyframes slideTop{
-  from{ transform:translateY(-200px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-@keyframes slideBottom{
-  from{ transform:translateY(200px); opacity:0; }
-  to{ transform:translateY(0); opacity:1; }
-}
-
-/* Responsive */
-@media(max-width:768px){
-  p{
-    font-size:1.1rem;
-  }
+/* Active (Visible) */
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
   </style>
@@ -100,45 +60,64 @@ p{
 
 <body>
 <i>
-<h1>The Rise of They Call Me Stan (Yashvardhan) – Diu’s Emerging Hip Hop Voice</h1>
+<section>
+  <div class="reveal">
+  <h1>The Rise of They Call Me Stan (Yashvardhan) – Diu’s Emerging Hip Hop Voice</h1></div> </section>
 
-<p>
+<section><div class="reveal"><p>
 In the evolving landscape of Indian hip hop, new voices are constantly rising from unexpected places. 
 One such voice emerging from the coastal town of Diu is They Call Me Stan — an independent Desi hip hop artist bringing raw emotion and authentic storytelling to the underground rap scene.
-</p>
+</p></div></section>
 
-<h2>Representing Diu Through Music On Mainstream</h2>
+<section><div class="reveal"><h2>Representing Diu Through Music On Mainstream</h2></div></section>
 
-<p>
+<p><section><div class="reveal">
 While major hip hop movements are often associated with metro cities, They Call Me Stan is building his identity from Diu, proving that talent is not limited by geography. 
 His music reflects personal struggles, ambition, silent battles, and the mindset of a dreamer determined to be heard.
-</p>
+</p></div></section>
 
-<h2>A Unique Identity in Indian Hip Hop</h2>
+<section><div class="reveal"><h2>A Unique Identity in Indian Hip Hop</h2></div></section>
 
-<p>
+<p><section><div class="reveal">
 Unlike mainstream artists, They Call Me Stan focuses on emotional depth and lyrical authenticity. 
 His style blends hardcore rap energy with vulnerable storytelling, creating music that resonates with listeners who value real expression over trends.
-</p>
+</p></div></section>
 
-<h2>Building the Diu Hip Hop Movement</h2>
+<section><div class="reveal"><h2>Building the Diu Hip Hop Movement</h2></div></section>
 
-<p>
+<p><section><div class="reveal">
 As a Diu based rapper, Stan represents a new wave of artists shaping local hip hop culture. 
 By consistently releasing music and sharing his journey online, he aims to put Diu on the map in the Indian hip hop scene.
-</p>
+</p></div></section>
 
-<h2>The Vision Ahead</h2>
+<section><div class="reveal"><h2>The Vision Ahead</h2></div></section>
 
-<p>
+<p><section><div class="reveal">
 The mission is clear — grow independently, stay authentic, and inspire others from smaller towns to believe in their voice. 
 They Call Me Stan is not just building songs; he is building an identity rooted in discipline, emotion, and relentless ambition.
-</p>
+</p></div></section>
 
-<p>
+<p><section><div class="reveal">
 Follow the journey and witness the rise of one of Diu’s most promising emerging hip hop artists.
-</p>
-  <b><u><h1>® About Devloper connect with him on Ig</h1><br><h3>https://www.instagram.com/_yaa.ssshhhh/</h3></u></b>
-</i>
+</p></div></section>
+ <section><div class="reveal"> <b><u><h1>® About Devloper connect with him on Ig</h1><br><h3>https://www.instagram.com/_yaa.ssshhhh/</h3></u></b>
+</i></div></section>
+  <script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
+  </script>
 </body>
 </html>
