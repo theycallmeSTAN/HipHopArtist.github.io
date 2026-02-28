@@ -2,7 +2,7 @@
 <html>
 <head>
 
-  <style>
+<style>
 *{
   margin:0;
   padding:0;
@@ -11,9 +11,9 @@
 
 body{
   height:100vh;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Courier New', monospace;
   background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
     url("images/Gemini_Generated_Image_ugffnmugffnmugff.png");
   background-size: cover;
   background-position: center;
@@ -22,58 +22,52 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  color:white;
 }
 
-/* 🔥 Neon Animated Title */
-h1{
+/* 🔥 Typing Animation */
+.typing-text{
   font-size:4rem;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  animation: flicker 2s infinite alternate;
-  color:#0ff;
+  font-weight:bold;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:4px solid #fff;
+  width:0;
+  animation: typing 3s steps(20) forwards, blink 0.8s infinite;
+  
+  color:#00ffff;
   text-shadow:
-    0 0 5px #0ff,
-    0 0 10px #0ff,
-    0 0 20px #0ff,
-    0 0 40px #0ff,
-    0 0 80px #0ff;
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff,
+    0 0 80px #00ffff;
 }
 
-/* Subtitle */
+/* Subtitle Neon */
 p{
   margin-top:20px;
   font-size:1.3rem;
   color:#ff00ff;
   text-shadow:
     0 0 5px #ff00ff,
-    0 0 10px #ff00ff,
-    0 0 20px #ff00ff;
+    0 0 15px #ff00ff,
+    0 0 30px #ff00ff;
 }
 
-/* Neon Flicker Animation */
-@keyframes flicker{
-  0%{
-    opacity:1;
-  }
-  45%{
-    opacity:0.8;
-  }
-  50%{
-    opacity:0.4;
-  }
-  55%{
-    opacity:0.9;
-  }
-  100%{
-    opacity:1;
-  }
+/* Keyframes */
+@keyframes typing{
+  from { width:0 }
+  to { width:100% }
+}
+
+@keyframes blink{
+  50% { border-color: transparent }
 }
 
 /* Responsive */
 @media(max-width:768px){
-  h1{
-    font-size:2.5rem;
+  .typing-text{
+    font-size:2.2rem;
   }
 }
   </style>
